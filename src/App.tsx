@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Main } from './components/Main';
+import { Header } from './components/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface IAppProps {
 }
-
-export default App;
+interface IAppState {
+	page: string;
+}
+export class App extends React.Component<IAppProps, IAppState> {
+	constructor(props: any) {
+		super(props);
+		this.state = {
+			page: 'home'
+		}
+		this.changePage = this.changePage.bind(this);
+	}
+	changePage(page: string) {
+		this.setState({page: page});
+	}
+	render() {
+		return (
+			<div className="App">
+				<Header changePage={ this.changePage } />
+				<Main page={ this.state.page } />
+			</div>
+		);
+	}
+}
