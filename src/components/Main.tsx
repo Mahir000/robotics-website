@@ -4,12 +4,18 @@ import { About } from './About';
 import { Contact } from './Contact';
 import { Home } from './Home';
 
-export class Main extends React.Component<any> {
+interface IMainProps {
+	page: string;
+}
+interface IMainState {
+}
+export class Main extends React.Component<IMainProps, IMainState> {
     renderPage = (page: string) => {
         return (
-            (page === 'about') ? <About /> 
+            (page === 'home') ? <Home />
+            : (page === 'about') ? <About /> 
             : (page === 'contact') ? <Contact /> 
-            : <Home />
+            : null
         );
     }
     render() {

@@ -12,10 +12,11 @@ export class About extends React.Component {
 					</p>
 				</div>
 				<div className="Details">
-					<h1>Details</h1>
+					<h2>Details</h2>
 					<p className="text-justify">
-						I built this website using React, which is a front-end javascript <b>library</b> developed
-						by Facebook.
+						This website is made using <b>React</b>, a front-end Javascript <b>library</b> developed
+						by Facebook. The main programming language I used for this is <b>Typescript</b> which is
+						an extension of the Javascript language.
 					</p>
 				</div>
 			</div>
