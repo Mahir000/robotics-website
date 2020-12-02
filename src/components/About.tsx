@@ -13,11 +13,23 @@ export class About extends React.Component {
 				</div>
 				<div className="Details">
 					<h2>Details</h2>
-					<p className="text-justify">
-						This website is made using <b>React</b>, a front-end Javascript <b>library</b> developed
-						by Facebook. The main programming language I used for this is <b>Typescript</b> which is
-						an extension of the Javascript language.
-					</p>
+					<div className="Frontend">
+						<h3>Frontend</h3>
+						<p className="text-justify">
+							The frontend of this website is being made using <b>React</b> which is a
+							Javascript <b>library</b> developed by Facebook. The main programming language
+							I'm using for it is <b>Typescript</b> which is an extension of the Javascript
+							language.
+						</p>
+					</div>
+					<div className="Backend">
+						<h3>Backend</h3>
+						<p className="text-justify">
+							The backend was created using Node.js and Express. Here is a link to the API I
+							created: <a href="https://limitless-springs-67845.herokuapp.com/api">limitless-springs</a>.
+							It's a default name...
+						</p>
+					</div>
 				</div>
 			</div>
 		);
