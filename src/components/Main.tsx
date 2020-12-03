@@ -27,14 +27,14 @@ export class Main extends React.Component<IMainProps, IMainState> {
         };
     }
     fetchData() {
-        fetch("http://192.168.0.17:5000/api"/*"https://limitless-springs-67845.herokuapp.com/api"*/).then(
+        fetch("https://limitless-springs-67845.herokuapp.com/api").then(
             res => res.json()
         ).then(
             res => this.setState(res)
         )
     }
     componentDidMount() {
-        setInterval(() => this.fetchData(), 1000);
+        this.fetchData();
     }
     renderPage = (page: string) => {
         return (
