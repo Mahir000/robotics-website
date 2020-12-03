@@ -8,13 +8,39 @@ interface IMainProps {
 	page: string;
 }
 interface IMainState {
+    members: {
+        name: string,
+        email: string,
+        bio: string[]
+    }[],
+    faqs: {
+        title: string,
+        content: string[]
+    }[]
 }
 export class Main extends React.Component<IMainProps, IMainState> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            members: [],
+            faqs: []
+        };
+    }
+    fetchData() {
+        fetch("http://192.168.0.17:5000/api"/*"https://limitless-springs-67845.herokuapp.com/api"*/).then(
+            res => res.json()
+        ).then(
+            res => this.setState(res)
+        )
+    }
+    componentDidMount() {
+        setInterval(() => this.fetchData(), 1000);
+    }
     renderPage = (page: string) => {
         return (
-            (page === 'home') ? <Home />
+            (page === 'home') ? <Home faqs={ this.state.faqs } />
             : (page === 'about') ? <About /> 
-            : (page === 'contact') ? <Contact /> 
+            : (page === 'contact') ? <Contact members={ this.state.members } /> 
             : null
         );
     }
